@@ -26,7 +26,29 @@ namespace week5
 
             buffer = "";
             testTree.postOrder(ref buffer);
+            Console.WriteLine(buffer);    
+
+            Node<string> BSTest = new Node<string>("d");
+            BSTree<string> BSTreetest = new BSTree<string>(BSTest);
+            BSTreetest.insertItem("c");
+            BSTreetest.insertItem("a");
+            BSTreetest.insertItem("d");
+            BSTreetest.insertItem("e");
+            BSTreetest.insertItem("h");
+
+            buffer = "";
+            BSTreetest.inOrder(ref buffer);
             Console.WriteLine(buffer);
+
+            buffer = "";
+            BSTreetest.preOrder(ref buffer);
+            Console.WriteLine(buffer);
+
+            buffer = "";
+            BSTreetest.postOrder(ref buffer);
+            Console.WriteLine(buffer);
+
+
 
 
             Console.ReadLine();
