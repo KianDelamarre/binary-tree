@@ -9,10 +9,8 @@ private int Height(Node<T> tree)
 {
     if (tree == null)
         return -1;
-
     int HLeft = Height(tree.Left);
     int HRight = Height(tree.Right);
-
     int height;
     if (HLeft > HRight)
     {
@@ -22,7 +20,6 @@ private int Height(Node<T> tree)
     {
         height = HRight;
     }
-
     return height + 1;
 }
         
