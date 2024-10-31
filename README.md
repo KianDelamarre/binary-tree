@@ -5,7 +5,7 @@ added height() method
 here is my explanation of how the height method works
 
 
-private int Height(Node<T> tree)          //Return the max level of the tree
+private int Height(Node<T> tree)          
 {
     if (tree == null)
         return -1;
