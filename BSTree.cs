@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,6 +35,11 @@ namespace week5
             else if (item.CompareTo(tree.Data) > 0)
                 insertItem(item, ref tree.Right);
         }
+
+
+
+        
+
 
     }
 

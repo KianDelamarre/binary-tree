@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -64,6 +65,34 @@ namespace week5
                 buffer += tree.Data.ToString() + " , ";
 
             }
+        }
+
+        public int Height()
+        {          
+            return Height(root);       
+        }
+
+
+        
+        private int Height(Node<T> tree)          //Return the max level of the tree
+        {
+            if (tree == null)
+                return -1;
+
+            int HLeft = Height(tree.Left);
+            int HRight = Height(tree.Right);
+
+            int height;
+            if(HLeft > HRight)
+            {
+                height = HLeft;
+            }
+            else
+            {
+                height = HRight;
+            }
+
+            return height + 1;
         }
 
 
