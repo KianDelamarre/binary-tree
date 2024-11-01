@@ -4,7 +4,9 @@ using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace week5
 {
@@ -61,8 +63,46 @@ namespace week5
             return (Equals(node1.Left, node2.Left) && Equals(node1.Right, node2.Right));
         }
 
+        public bool SubTree(BSTree<T> subTree)
+        {
+            //check if the subtree is nulll
+            if (subTree == null)
+            {
+                return true;         //an empty tree is always a subtree
+            }
+            
+            //check if the tree calling function is null
+            if (this.root == null)
+            {
+                return false;   //if subTree!=null and larger tree == null, then tree cannot be a subtree of the larger tree
+            }
+            return SubTree(root, subTree.root);
+        }
 
+        private bool SubTree(Node<T> parentTreeNode, Node<T> subTreeRoot)
+        {
+            if(parentTreeNode == null)   //if the current node is null, then there are no more branches so there cannot be any subtrees after this
+            {
+                return false;
+            }
 
+            if(Equals(parentTreeNode, subTreeRoot))   //use Equal method to check if the trees are the exact same and return true if they are
+            {
+                return true;      
+            }
+
+            if (SubTree(parentTreeNode.Left, subTreeRoot))   //recurse to the left and see if the subtree matches
+            {
+                return true;
+            }
+            if (SubTree(parentTreeNode.Right, subTreeRoot))   //recurse right and see if the subtree matches
+            {
+                return true;
+            }
+
+            return false;     //no subtrees match so return false
+
+        }
 
 
 

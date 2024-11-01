@@ -32,15 +32,14 @@ namespace week5
             BSTree<string> BSTreetest = new BSTree<string>();
             BSTreetest.insertItem("d");
             BSTreetest.insertItem("f");
-            BSTreetest.insertItem("b");
             BSTreetest.insertItem("e");
+            BSTreetest.insertItem("g");
 
             BSTree<string> BSTree1 = new BSTree<string>();
-            BSTree1.insertItem("d");
             BSTree1.insertItem("f");
-            BSTree1.insertItem("b");
             BSTree1.insertItem("e");
-            BSTree1.insertItem("x");
+            BSTree1.insertItem("g");
+ 
 
 
 
@@ -62,6 +61,8 @@ namespace week5
             Console.WriteLine(BSTreetest.Contains("d"));
             Console.WriteLine(BSTreetest.Contains("x"));
             Console.WriteLine(BSTreetest.Equals(BSTree1));
+            Console.WriteLine(BSTreetest.SubTree(BSTree1));
+
 
 
 
