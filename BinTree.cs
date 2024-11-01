@@ -4,6 +4,7 @@ using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using week5;
 
 namespace week5
 {
@@ -95,6 +96,24 @@ namespace week5
             return height + 1;
         }
 
+        public int Count()
+        {
+            return Count(root);
+        }
+
+
+
+        private int Count(Node<T> tree)          //Return the number of nodes in the tree
+        {
+            if (tree == null)
+                return 0;
+
+            int HLeft = Count(tree.Left);        //recurse left
+            int HRight = Count(tree.Right);      //recure right
+
+            return HLeft + HRight + 1; ;         //once recured left and right, add left and right and + 1 for current node
+        }
+
 
 
 
@@ -115,3 +134,5 @@ namespace week5
 
     }
 }
+
+

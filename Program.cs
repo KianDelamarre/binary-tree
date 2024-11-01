@@ -55,6 +55,8 @@ namespace week5
             Console.WriteLine(buffer);
 
             Console.WriteLine(BSTreetest.Height());
+            Console.WriteLine(BSTreetest.Count());
+
 
 
 
