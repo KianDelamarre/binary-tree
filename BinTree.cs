@@ -107,7 +107,7 @@ namespace week5
         {
             if (tree == null)
                 return 0;
-
+            
             int HLeft = Count(tree.Left);        //recurse left
             int HRight = Count(tree.Right);      //recure right
 
