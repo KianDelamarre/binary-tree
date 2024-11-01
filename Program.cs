@@ -56,6 +56,8 @@ namespace week5
 
             Console.WriteLine(BSTreetest.Height());
             Console.WriteLine(BSTreetest.Count());
+            Console.WriteLine(BSTreetest.Contains("d"));
+            Console.WriteLine(BSTreetest.Contains("x"));
 
 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
@@ -114,6 +115,34 @@ namespace week5
             return HLeft + HRight + 1; ;         //once recured left and right, add left and right and + 1 for current node
         }
 
+        public Boolean Contains(T item)
+        //Return true if the item is contained in the BSTree, false 	  //otherwise.
+        {
+            return Contains(item, ref root);
+        }
+
+
+        private Boolean Contains(T item,ref Node<T> tree)
+        //Return true if the item is contained in the BSTree, false 	  //otherwise.
+        {
+            if (tree == null)        
+                return false;
+
+            if (item.CompareTo(tree.Data) == 0)    
+            {
+                return true;
+            }
+            if (Contains(item, ref tree.Left))
+            {
+                return true;
+            }
+
+            if (Contains(item, ref tree.Right))
+            {
+                return true;
+            }
+            return false;
+        }
 
 
 
