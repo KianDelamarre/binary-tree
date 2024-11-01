@@ -36,9 +36,35 @@ namespace week5
                 insertItem(item, ref tree.Right);
         }
 
+        public bool Equals(BSTree<T> tree)
+        {
+            return Equals(root, tree.root); 
+        }
+
+        private bool Equals(Node<T> node1, Node<T> node2)
+        {
+            if (node1 == null && node2 == null)
+            {
+                return true;
+            }
+
+            if (node1 == null || node2 == null || node1.Data.CompareTo(node2.Data)!=0)
+            {             
+                return false;
+            }
+                //if (Equals(node1.Left, node2.Left) && Equals(node1.Right, node2.Right))       I left this in to show how i origianlly had the code before i realised how i could simplify it
+                //{
+                //    return true;
+                //}
+                //return false;
+
+            return (Equals(node1.Left, node2.Left) && Equals(node1.Right, node2.Right));
+        }
 
 
-        
+
+
+
 
 
     }

@@ -28,17 +28,20 @@ namespace week5
             testTree.postOrder(ref buffer);
             Console.WriteLine(buffer);    
 
-            Node<string> BSTest = new Node<string>("h");
-            BSTree<string> BSTreetest = new BSTree<string>(BSTest);
+
+            BSTree<string> BSTreetest = new BSTree<string>();
             BSTreetest.insertItem("d");
             BSTreetest.insertItem("f");
             BSTreetest.insertItem("b");
             BSTreetest.insertItem("e");
-            BSTreetest.insertItem("a");
-            BSTreetest.insertItem("c");
-            BSTreetest.insertItem("g");
-            BSTreetest.insertItem("i");
-            BSTreetest.insertItem("j");
+
+            BSTree<string> BSTree1 = new BSTree<string>();
+            BSTree1.insertItem("d");
+            BSTree1.insertItem("f");
+            BSTree1.insertItem("b");
+            BSTree1.insertItem("e");
+            BSTree1.insertItem("x");
+
 
 
 
@@ -58,6 +61,7 @@ namespace week5
             Console.WriteLine(BSTreetest.Count());
             Console.WriteLine(BSTreetest.Contains("d"));
             Console.WriteLine(BSTreetest.Contains("x"));
+            Console.WriteLine(BSTreetest.Equals(BSTree1));
 
 
 
