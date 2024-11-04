@@ -79,7 +79,7 @@ namespace week5
         private int Height(Node<T> tree)          //Return the max level of the tree
         {
             if (tree == null)
-                return -1;
+                return 0;
 
             int HLeft = Height(tree.Left);
             int HRight = Height(tree.Right);
@@ -144,6 +144,41 @@ namespace week5
             return false;
         }
 
+        public bool isBSTree()
+        {
+            return (isBSTree(root));
+        }
+
+        private bool isBSTree(Node<T> tree)
+        {
+            
+            if(tree == null)
+            {
+                return true;
+            }
+
+
+
+
+            if(tree.Left != null && tree.Data.CompareTo(tree.Left.Data)>=0)
+            {
+                return false;
+            }
+            if (tree.Right != null && tree.Data.CompareTo(tree.Right.Data) <= 0)
+            {
+                return false;
+            }
+
+            if (isBSTree(tree.Left) && isBSTree(tree.Right))
+            {
+                return true;
+            }
+            return false;
+
+            
+
+
+        }
 
 
 

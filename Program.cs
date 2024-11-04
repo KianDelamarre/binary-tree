@@ -56,12 +56,13 @@ namespace week5
             BSTreetest.postOrder(ref buffer);
             Console.WriteLine(buffer);
 
-            Console.WriteLine(BSTreetest.Height());
+            Console.WriteLine("height = " + BSTreetest.Height());
             Console.WriteLine(BSTreetest.Count());
             Console.WriteLine(BSTreetest.Contains("d"));
             Console.WriteLine(BSTreetest.Contains("x"));
             Console.WriteLine(BSTreetest.Equals(BSTree1));
             Console.WriteLine(BSTreetest.SubTree(BSTree1));
+            Console.WriteLine(BSTreetest.isBSTree());
 
 
 

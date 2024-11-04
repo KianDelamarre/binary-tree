@@ -48,7 +48,7 @@ namespace week5
             if (node1 == null && node2 == null)
             {
                 return true;
-            }
+            }   
 
             if (node1 == null || node2 == null || node1.Data.CompareTo(node2.Data)!=0)
             {             
