@@ -69,14 +69,12 @@ namespace week5
             }
         }
 
+
         public int Height()
-        {          
-            return Height(root);       
-        }
-
-
-        
-        private int Height(Node<T> tree)          //Return the max level of the tree
+        {
+            return Height(root);
+        }        
+        protected int Height(Node<T> tree)          //Return the max level of the tree
         {
             if (tree == null)
                 return 0;
@@ -97,12 +95,12 @@ namespace week5
             return height + 1;
         }
 
+
+
         public int Count()
         {
             return Count(root);
         }
-
-
 
         private int Count(Node<T> tree)          //Return the number of nodes in the tree
         {

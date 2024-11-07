@@ -26,7 +26,7 @@ namespace week5
             insertItem(item, ref root);
         }
 
-        private void insertItem(T item, ref Node<T> tree)
+        protected void insertItem(T item, ref Node<T> tree)
         {
             if (tree == null)
                 tree = new Node<T>(item);
@@ -37,6 +37,8 @@ namespace week5
             else if (item.CompareTo(tree.Data) > 0)
                 insertItem(item, ref tree.Right);
         }
+
+
 
         public bool Equals(BSTree<T> tree)
         {

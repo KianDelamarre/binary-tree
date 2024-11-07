@@ -10,6 +10,7 @@ namespace week5
     {
         private T data;
         public Node<T> Left, Right;
+        private int balanceFactor;
 
 
         public Node(T data)
@@ -24,6 +25,13 @@ namespace week5
         {
             get { return data; }
             set { data = value; }
+        }
+
+        public int BalanceFactor
+        {
+            get { return balanceFactor; }
+            set { balanceFactor = value; }
+
         }
     }
 }
