@@ -29,19 +29,19 @@ namespace week5
 
         }
 
-        public void removeItem(T item)
-        {
-            removeItem(item, ref root);
-        }
+        //public void removeItem(T item)
+        //{
+        //    removeItem(item, ref root);
+        //}
 
-        private void removeItem(T item, ref Node<T> tree)
-        {
-            if (Contains(item))
-            {
+        //private void removeItem(T item, ref Node<T> tree)
+        //{
+        //    if (Contains(item))
+        //    {
 
-            }
+        //    }
 
-        }
+        //}
 
         private void rotateLeft(ref Node<T> tree)
         {

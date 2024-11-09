@@ -76,6 +76,14 @@ namespace week5
             Console.WriteLine(AVLTree.Height());
             AVLTree.insertItem(17);
             Console.WriteLine(AVLTree.Height());
+            AVLTree.insertItem(18);
+            AVLTree.insertItem(16);
+            AVLTree.insertItem(24);
+
+
+
+            AVLTree.removeItem(20);
+           Console.WriteLine( AVLTree.Contains(99));
 
             string buffer = "";
             buffer = "";

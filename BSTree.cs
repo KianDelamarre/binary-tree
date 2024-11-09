@@ -38,7 +38,124 @@ namespace week5
                 insertItem(item, ref tree.Right);
         }
 
+        public void removeItem(T item)
+        {
+            removeItem(item, ref root);
+        }
 
+        protected void removeItem(T item, ref Node<T> tree)
+        {
+            if (tree == null)
+                return;
+
+            //if (item.CompareTo(tree.Data) != 0)      //ive left this in to show what i had originally
+            //{                                        //this is quite innefficient as it will recurse all the way down the left first, but this is pointless because if 
+            //    removeItem(item, ref tree.Left);     //the item im looking for is larger than the root, i can just recurse down the right, and if its smaller than the root,
+            //    removeItem(item, ref tree.Right);    //just recurse down the right and not the left
+            //}
+
+            if (item.CompareTo(tree.Data) < 0)
+            {
+                removeItem(item, ref tree.Left); 
+            }
+
+            else if (item.CompareTo(tree.Data) > 0)
+            {
+                removeItem(item, ref tree.Right);
+            }
+
+            else if (item.CompareTo(tree.Data) == 0)
+            {
+                ///    case 1 no child    ////////////////////////////////////////////////////////////////
+                if (tree.Right == null && tree.Left == null)
+                {
+                    tree = null;    
+                }
+                ///    case 2.1 one child to the right     ///////////////////////////////////////////////
+                else if (tree.Right != null && tree.Left==null)
+                {
+                    Node<T> newRoot = tree.Right;
+                    tree = newRoot;
+                }
+                ///    case 2.2 one child to the left     ////////////////////////////////////////////////
+                else if (tree.Right == null && tree.Left != null)
+                {
+                    Node<T> newRoot = tree.Left;
+                    tree = newRoot;                
+                }
+
+                ///    case case 3  2 children             ///////////////////////////////////////////////
+                else if (tree.Right != null && tree.Left != null)
+                {
+                    //Node<T> newRoot = retrieveSmallest(tree.Right);
+                    //tree.Data = newRoot.Data;
+
+
+                    Node<T> newRootParent = tree;   //newRootParent needs to be tree because newRoot could be the direct right child of tre
+                    Node<T> newRoot = tree.Right;   
+
+                    while (newRoot.Left != null)   //while loop to keep track of new root (left most node to the right of the the item to be removed
+                    {                              //and also keeps track of its parent which is needed later 
+                        newRootParent = newRoot;  
+                        newRoot = newRoot.Left;
+                    }
+
+                    tree.Data = newRoot.Data;      //overwrite data of item being removed with newRood.Data
+
+                    if (newRoot.Right != null)     //if new root has a right child
+                    {
+                        if (newRoot == tree.Right)
+                        //if (tree.Data.CompareTo(newRootParent.Data)==0)
+                        {
+                            newRootParent.Right = newRoot.Right;
+                        }
+
+                        else
+                        {
+                            newRootParent.Left = null;   //replace newRoot with newRoot.Right by changing parents Left
+                        }
+                    }
+                    else   //when newRoot has no Right child
+                    {
+                        if (newRoot == tree.Right)
+                        //if (tree.Data.CompareTo(newRootParent.Data)==0)
+                        {
+                            newRootParent.Right = null;
+                        }
+                        //newRootParent.Right = null;    //just set newRootParent.Left to null as there is nothing to the left of it now
+                        else
+                            newRootParent.Left = null;
+                    }
+                    
+
+
+
+
+                    //if (newRoot.Right != null)
+                    //{
+                    //    //tree.Right = newRoot.Right;
+                    //    newRoot.Data = newRoot.Right.Data;
+                    //    newRoot.Right = null;
+
+                    //}
+                    //else if (newRoot.Right == null)
+                    //{
+                    //    newRoot = null;
+                    //}
+                }
+            }
+        }
+
+        protected Node<T> retrieveSmallest(Node<T> tree)   //retieveSmallest function to return the leftmost leaf node of a given tree for use in removeItem method
+        {
+            if(tree == null)
+            {
+                return null;
+            }
+            if (tree.Left == null )
+                return tree;
+            return (retrieveSmallest(tree.Left));
+        }
 
         public bool Equals(BSTree<T> tree)
         {

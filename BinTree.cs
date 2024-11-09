@@ -81,7 +81,6 @@ namespace week5
 
             int HLeft = Height(tree.Left);
             int HRight = Height(tree.Right);
-
             int height;
             if(HLeft > HRight)
             {
